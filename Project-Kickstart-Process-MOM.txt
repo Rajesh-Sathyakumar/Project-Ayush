@@ -8,6 +8,8 @@
 	vii. Bootstrap
 	viii. Javascript and Jquery
 	xi. HTML
+	x. Php Storm
+	xi. Github Desktop / Source Tree
 
 
 2) Allocate Roles
