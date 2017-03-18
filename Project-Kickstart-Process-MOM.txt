@@ -1,4 +1,15 @@
-1) GitHub
+1) Softwares and technologies used:
+	i. Xampp (mysql, php, apache, mail server)
+	ii. Post Man and post man interceptor
+	iii. Github
+	iv. Chrome Dev console
+	v. Ajax
+	vi. Handlebars.js
+	vii. Bootstrap
+	viii. Javascript and Jquery
+	xi. HTML
+
+
 2) Allocate Roles
 	i. Front End Developement
 	ii. Database Designer and ETL Developer (mysql)
