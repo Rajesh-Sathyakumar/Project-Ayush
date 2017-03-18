@@ -1,0 +1,13 @@
+1) GitHub
+2) Allocate Roles
+	i. Front End Developement
+	ii. Database Designer and ETL Developer (mysql)
+	iii. Back End Development (php)
+	iv. Strong Content Writer and PPT Presentation (Browse contents for website and Prepare for Presentation)
+
+3) Create Modules
+	i. Database Design
+	ii. Front end Layout design
+	iii. Generic Database -> Php Script
+	iv. Generic Php Data to Json Formatter
+	v. Generic Ajax Calls
