@@ -31,7 +31,10 @@ if(isset($_POST["submit"]))
     <link href="content/css/animate.min.css" rel="stylesheet">
 
     <link href="content/css/custom.css" rel="stylesheet">
-  <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/D60A0FF3-C356-7E4C-8CA3-7783FCBAD108/main.js" charset="UTF-8"></script></head>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="js/register.js"></script>
+
+  </head>
 
   <body class="login">
     <div>
@@ -79,29 +82,29 @@ if(isset($_POST["submit"]))
             <form>
               <h1>Create Account</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" name="fname" class="form-control" placeholder="Username" required="" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                <input type="email" name="lname" class="form-control" placeholder="Email" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" name="pass" class="form-control" placeholder="Password" required="" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="license number" required="" />
+                <input type="text" name="license" class="form-control" placeholder="license number" required="" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="location" required="" />
+                <input type="text" name="location" class="form-control" placeholder="location" required="" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="certification" required="" />
+                <input type="text" name="cert" class="form-control" placeholder="certification" required="" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="validity" required="" />
+                <input type="text" name="validity" class="form-control" placeholder="validity" required="" />
               </div>
 
               <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                  <input type="button" id="submit" value="Submit"/>
               </div>
 
               <div class="clearfix"></div>
