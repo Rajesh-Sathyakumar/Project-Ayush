@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2017 at 10:31 AM
+-- Generation Time: Mar 26, 2017 at 06:55 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -57,11 +57,11 @@ CREATE TABLE `companylicenses` (
   `ValidityDate` date NOT NULL,
   `IsValid` tinyint(1) NOT NULL,
   `Approved` tinyint(1) NOT NULL,
-  `ApprovalDate` date NOT NULL,
-  `ApprovedBy` varchar(255) NOT NULL,
-  `ApprovalDesc` varchar(255) NOT NULL,
-  `OnsiteApprovalBy` varchar(255) NOT NULL,
-  `OnsiteApprovalStatus` tinyint(1) NOT NULL
+  `ApprovalDate` date DEFAULT NULL,
+  `ApprovedBy` varchar(255) DEFAULT NULL,
+  `ApprovalDesc` varchar(255) DEFAULT NULL,
+  `OnsiteApprovalBy` varchar(255) DEFAULT NULL,
+  `OnsiteApprovalStatus` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -70,7 +70,8 @@ CREATE TABLE `companylicenses` (
 
 INSERT INTO `companylicenses` (`CompanyLicenseKey`, `LicenseNumber`, `ValidityDate`, `IsValid`, `Approved`, `ApprovalDate`, `ApprovedBy`, `ApprovalDesc`, `OnsiteApprovalBy`, `OnsiteApprovalStatus`) VALUES
 (1, 'a1234567', '2017-03-27', 0, 0, '0000-00-00', '0', '', '', 0),
-(2, 'a2222222222', '2017-04-25', 1, 0, '0000-00-00', '0', '', '', 0);
+(2, 'a2222222222', '2017-04-25', 1, 0, '0000-00-00', '0', '', '', 0),
+(3, '1234', '0000-00-00', 0, 0, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -85,38 +86,17 @@ CREATE TABLE `company_details` (
   `EmailAddress` varchar(100) NOT NULL,
   `Password` varchar(100) NOT NULL,
   `Location` varchar(250) NOT NULL,
-  `LicenseKey` int(11) NOT NULL
+  `LicenseKey` int(11) NOT NULL,
+  `CompanyHistory` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `company_details`
 --
 
-INSERT INTO `company_details` (`CompanyKey`, `CompanyName`, `PhoneNumber`, `EmailAddress`, `Password`, `Location`, `LicenseKey`) VALUES
-(1, 'abc', '04425502946', 'abc@gmail.com', '22119974', 'chennai', 1),
-(2, 'aaa', '01125502946', 'aaa@gmail.com', '2211997', 'Ooty', 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `drugs`
---
-
-CREATE TABLE `drugs` (
-  `DrugKey` int(11) NOT NULL,
-  `DrugType` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `drugs`
---
-
-INSERT INTO `drugs` (`DrugKey`, `DrugType`) VALUES
-(1, 'Ayurveda'),
-(2, 'Yoga'),
-(3, 'Unani'),
-(4, 'Siddha '),
-(5, 'Homoeopathy');
+INSERT INTO `company_details` (`CompanyKey`, `CompanyName`, `PhoneNumber`, `EmailAddress`, `Password`, `Location`, `LicenseKey`, `CompanyHistory`) VALUES
+(1, 'abc', '04425502946', 'abc@gmail.com', '22119974', 'chennai', 1, ''),
+(2, 'aaa', '01125502946', 'aaa@gmail.com', '2211997', 'Ooty', 2, '');
 
 -- --------------------------------------------------------
 
@@ -148,6 +128,28 @@ CREATE TABLE `drug_details` (
 INSERT INTO `drug_details` (`DrugId`, `DrugName`, `Company`, `Ingredients`, `DrugUsage`, `Drug`, `Price`, `ApprovedBy`, `ApprovalDesc`, `Approved`, `Dosage`, `ApprovalDate`, `OnsiteApprovalStatus`, `OnsiteApprovalBy`) VALUES
 (123, 'abc', 1, 'aaa,bbb', 'aaa,bbb', 2, 45.89, '', '', 0, '', '0000-00-00', 0, '');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `drug_types`
+--
+
+CREATE TABLE `drug_types` (
+  `DrugKey` int(11) NOT NULL,
+  `DrugType` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `drug_types`
+--
+
+INSERT INTO `drug_types` (`DrugKey`, `DrugType`) VALUES
+(1, 'Ayurveda'),
+(2, 'Yoga'),
+(3, 'Unani'),
+(4, 'Siddha '),
+(5, 'Homoeopathy');
+
 --
 -- Indexes for dumped tables
 --
@@ -170,7 +172,8 @@ ALTER TABLE `companycertifications`
 -- Indexes for table `companylicenses`
 --
 ALTER TABLE `companylicenses`
-  ADD PRIMARY KEY (`CompanyLicenseKey`);
+  ADD PRIMARY KEY (`CompanyLicenseKey`),
+  ADD UNIQUE KEY `LicenseNumber` (`LicenseNumber`);
 
 --
 -- Indexes for table `company_details`
@@ -182,17 +185,17 @@ ALTER TABLE `company_details`
   ADD KEY `fk_company_license` (`LicenseKey`);
 
 --
--- Indexes for table `drugs`
---
-ALTER TABLE `drugs`
-  ADD PRIMARY KEY (`DrugKey`);
-
---
 -- Indexes for table `drug_details`
 --
 ALTER TABLE `drug_details`
   ADD KEY `fk_companydetails_drugdetails` (`Company`),
   ADD KEY `fk_drugs_drugdetails` (`Drug`);
+
+--
+-- Indexes for table `drug_types`
+--
+ALTER TABLE `drug_types`
+  ADD PRIMARY KEY (`DrugKey`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -207,7 +210,7 @@ ALTER TABLE `certifications`
 -- AUTO_INCREMENT for table `companylicenses`
 --
 ALTER TABLE `companylicenses`
-  MODIFY `CompanyLicenseKey` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CompanyLicenseKey` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `company_details`
 --
@@ -235,7 +238,7 @@ ALTER TABLE `company_details`
 --
 ALTER TABLE `drug_details`
   ADD CONSTRAINT `fk_companydetails_drugdetails` FOREIGN KEY (`Company`) REFERENCES `company_details` (`CompanyKey`),
-  ADD CONSTRAINT `fk_drugs_drugdetails` FOREIGN KEY (`Drug`) REFERENCES `drugs` (`DrugKey`);
+  ADD CONSTRAINT `fk_drugs_drugdetails` FOREIGN KEY (`Drug`) REFERENCES `drug_types` (`DrugKey`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
