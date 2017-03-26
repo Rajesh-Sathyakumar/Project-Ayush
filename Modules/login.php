@@ -1,15 +1,3 @@
-<?php
-session_start();
-  include ("validation.php");
-if(isset($_POST["submit"]))
-  {
-    $user=$_POST['n1'];
-      $password=$_POST['n2'];
-    validate($user,$password);
-
-  }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,20 +7,19 @@ if(isset($_POST["submit"]))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>MINISTRY OF AYUSH</title>
+      <title>MINISTRY OF AYUSH</title>
 
+      <link href="Content/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="Content/css/nprogress.css" rel="stylesheet">
 
-    <link href="content/css/nprogress.css" rel="stylesheet">
+    <link href="Content/css/animate.min.css" rel="stylesheet">
 
-    <link href="content/css/animate.min.css" rel="stylesheet">
+    <link href="Content/css/custom.css" rel="stylesheet">
+      <script src="Scripts/jquery-1.11.3-jquery.min.js"></script>
 
-    <link href="content/css/custom.css" rel="stylesheet">
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script src="js/register.js"></script>
 
   </head>
 
@@ -47,16 +34,15 @@ if(isset($_POST["submit"]))
             <form method="post" action="<?php echo$_SERVER['PHP_SELF']; ?>">
               <h1>Login Form</h1>
               <div>
-              <input type="text"  name="n1"  class="form-control" placeholder="Username" required="" />
-               
+              <input type="text"  name="user_name" id="user_name" class="form-control" placeholder="Username" required="" />
               </div>
               <div>
-                <input type="password" name="n2" class="form-control" placeholder="Password" required="" />
+                <input type="password" name="user_password" id="user_password" class="form-control" placeholder="Password" required="" />
             
               </div>
               <div>
-              <input type="submit" name="submit">
-                <!-- <a class="btn btn-default" href="index.html" name="submit">Log in</a> -->
+
+                  <input class="btn btn-default submit" id="btn-login" type="submit" name="submit" value="Login">
                 <a class="reset_pass" href="#">Lost your password?</a>
               </div>
 
@@ -97,14 +83,24 @@ if(isset($_POST["submit"]))
                 <input type="text" name="location" class="form-control" placeholder="location" required="" />
               </div>
               <div>
-                <input type="text" name="cert" class="form-control" placeholder="certification" required="" />
+                  <label class="col-lg-1">Certifications</label>
+                  <label class="col-lg-2 custom-control custom-checkbox">
+                      <input type="checkbox" class="col-lg-2 custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">ISO</span>
+                  </label>
+                  <label class="col-lg-3 custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">GMP</span>
+                  </label>
               </div>
               <div>
-                <input type="text" name="validity" class="form-control" placeholder="validity" required="" />
+                <input type="text" name="validity" class="form-control" placeholder=" License validity" required="" />
               </div>
 
               <div>
-                  <input type="button" id="submit" value="Submit"/>
+                  <input class="btn btn-default submit" onclick="" id="btn-login" type="submit" name="btn-login" value="Register">
               </div>
 
               <div class="clearfix"></div>
