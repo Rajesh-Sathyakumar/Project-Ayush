@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> </title>
+
+    <!-- Bootstrap -->
+    <link href="Content/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="Content/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="Content/css/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="Content/css/green.css" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="../dashboard/Content/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="../dashboard/Content/css/jqvmap.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="../dashboard/Content/css/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="Content/css/custom.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container body">
+      <div class="container">
+
+
+        <!-- top navigation -->
+        
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <!-- top tiles -->
+          <div class=" col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Search Drugs and Drug Manufacturing Companies <small>Float left</small></h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs" id="searchToggle">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active" id="drugtab"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Search by Drugs</a>
+                        </li>
+                        <li role="presentation" class="" id="companytab"><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Search by Drug Companies</a>
+                        </li>
+
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                          <div class="row">
+                            <div class=" col-xs-12">
+                              <div id="drug" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" id="drugname">
+                                  <input type="radio" name="drug" value="male" data-parsley-multiple="drug" data-parsley-id="12"> Drug Name
+                                </label>
+                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" id="patentedcompany">
+                                  <input type="radio" name="drug" value="female" data-parsley-multiple="drug">Patented Companies
+                                </label>
+                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" id="category">
+                                  <input type="radio" name="drug" value="female" data-parsley-multiple="drug"> Categories
+                                </label>
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row"> <div class="col-lg-3"><h2>Search Value</h2></div></div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <form>
+                                <div class="col-xs-12 form-group pull-right top_search" >
+                                  <div class="input-group col-lg-4" >
+                                    <input type="text" class="form-control" placeholder="Search for..." id="drugSearchValue">
+                                  </div>
+                                  <div class="input-group col-lg-4">
+                                    <button type="button" class="btn btn-primary" onclick="dosearch()">Submit</button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                          <div class="row">
+                            <div class=" col-xs-12">
+                              <div id="company" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" id="certificates">
+                                  <input type="radio" name="company" value="male" data-parsley-multiple="company" data-parsley-id="12"> Certificate
+                                </label>
+                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" id="location">
+                                  <input type="radio" name="company" value="female" data-parsley-multiple="company">Location
+                                </label>
+                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" id="companyname">
+                                  <input type="radio" name="company" value="female" data-parsley-multiple="company"> Company Name
+                                </label>
+                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" id="DrugName">
+                                  <input type="radio" name="company" value="female" data-parsley-multiple="company"> Drug Name
+                                </label>
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row"> <div class="col-lg-3"><h2>Search Value</h2></div></div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <form>
+                                <div class="col-xs-12 form-group pull-right top_search" >
+                                  <div class="input-group col-lg-4" >
+                                    <input type="text" class="form-control" placeholder="Search for..." id="companySearchValue">
+                                  </div>
+                                  <div class="input-group col-lg-4" >
+                                    <button type="button" class="btn btn-primary" onclick="dosearch()">Submit</button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  </div>
+                   <div class="x_content">
+                    <div class="table-responsive" id="tableValues">
+                      
+                    </div>
+              
+            
+                  </div>
+                </div>
+              </div>
+        <!-- /page content -->
+        <!--table-->
+       
+
+        <!-- footer content -->
+        
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="Scripts/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="Scripts/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="Scripts/nprogress.js"></script>
+    <!-- Chart.js -->
+    <!-- gauge.js -->
+    <script src="Scripts/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="Scripts/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <!-- Skycons -->
+    <script src="Scripts/skycons.js"></script>
+    <!-- Flot -->
+    <script src="Scripts/jquery.flot.js"></script>
+    <script src="Scripts/jquery.flot.pie.js"></script>
+    <script src="Scripts/jquery.flot.time.js"></script>
+    <script src="Scripts/jquery.flot.stack.js"></script>
+    <script src="Scripts/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="Scripts/jquery.flot.orderBars.js"></script>
+    <script src="Scripts/jquery.flot.spline.min.js"></script>
+    <script src="Scripts/curvedLines.js"></script>
+    <!-- DateJS -->
+    <!-- JQVMap -->
+
+    <!-- Custom Theme Scripts -->
+    <script src="Scripts/custom.min.js"></script>
+   <!-- <script type="text/javascript">
+        $('#drugname').click(function(){
+            $('#searchfilter').html('<input type="text" class="form-control" id="searchbox" placeholder="Enter Drug Name..">');
+        })
+        $('#patentedcompany').click(function(){
+            $('#searchfilter').html('<input type="text" class="form-control" id="searchbox" placeholder="Enter Company Name..">');
+        })
+        $('#category').click(function(){
+            $('#searchfilter').html(' <input type="text" class="form-control" id="searchbox" placeholder="Enter .">');
+        })
+        $('#certificates').click(function(){
+            $('#searchfilter1').html('<input type="text" class="form-control" id="searchbox1" placeholder="Select Certificates">');
+        })
+        $('#companyname').click(function(){
+            $('#searchfilter1').html('<input type="text" class="form-control" id="searchbox1" placeholder="Enter Company Name..">');
+        })
+        $('#location').click(function(){
+            $('#searchfilter1').html('<input type="text" class="form-control" id="searchbox1" placeholder="Enter Location of Company..">');
+        })
+        </script>-->
+        <script type="text/javascript" src="Scripts/search.js"></script>
+  </body>
+</html>

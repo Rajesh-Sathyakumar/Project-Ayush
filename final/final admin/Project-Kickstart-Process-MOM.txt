@@ -1,0 +1,45 @@
+1) Softwares and technologies used:
+	i. Xampp (mysql, php, apache, mail server)
+	ii. Post Man and post man interceptor
+	iii. Github
+	iv. Chrome Dev console
+	v. Ajax
+	vi. Handlebars.js
+	vii. Bootstrap
+	viii. Javascript and Jquery
+	xi. HTML
+	x. Php Storm
+	xi. Github Desktop / Source Tree
+
+
+2) Allocate Roles
+	i. Front End Developement
+	ii. Database Designer and ETL Developer (mysql)
+	iii. Back End Development (php)
+	iv. Strong Content Writer and PPT Presentation (Browse contents for website and Prepare for Presentation)
+	v. Test the application, prepare test cases and data for application
+
+3) Create Modules
+	i. Database Design
+	ii. Front end Layout design
+	iii. Generic Database -> Php Script
+	iv. Generic Php Data to Json Formatter
+	v. Generic Ajax Calls
+
+4) Coding Notions
+
+ Database:
+ 	i. Always create Keys in tables
+ 	ii. DB Design Should use case like (Table_Name)
+ 	iii. Proper normalization should be done
+ 	iv. Foreign Keys and Constraints should be used in Alter statements
+
+ php and Javascript:
+ 	i. Split code into functions and modules
+ 	ii. Use Camel Case always (variableName)
+ 	iii. Always make use of generic Scripts
+
+ HTML:
+ 	i. Make Proper alignments
+ 	ii. Use ID's in camelcase for all the Input fields
+ 	iii. No Php Scripts or JS scipts should be used here instead keep only corresponing php and JS files.
